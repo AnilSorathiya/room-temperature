@@ -1,0 +1,12 @@
+.idea
+venv
+*.pyc
+__pycache__
+.ipynb_checkpoints
+.vscode
+*.log
+*.code-workspace
+.env
+.DS_Store
+.history
+.env.template
