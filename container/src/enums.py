@@ -23,5 +23,4 @@ class ModelColumns(Enum):
     AVG_ROOM_TEMPERATURE = 'avgRoomTemperature'
     AVG_LIGHT_BRIGHTNESS = 'avgLightBrightness'
     AVG_PROCESSOR_TEMPERATURE = 'avgProcessorTemperature'
-    ROOM_TEMPERATURE = 'roomTemperature'
-    LIGHT_BRIGHTNESS = 'lightBrightness'
+
