@@ -1,7 +1,7 @@
 ﻿# Room Temperature Model and Docker Container
 
 ## Introduction
-Temperature sensors provides good accuracy when you use in control variables. However, when you embedded into a hardware
+Temperature sensors provides good accuracy when you use in control environment. However, when you embedded into a hardware
 device, there are other variables affect the reading of the sensor such as processor temperature, external temperature,
 any LED attach with the device.
 
@@ -56,7 +56,7 @@ callable    = app
 
 1. Build and run docker container
 ```commandline
-    cd <path-to-container-folder>
+    cd path-to-container-folder
     docker-compose up
 ```
 2.  Browser url 

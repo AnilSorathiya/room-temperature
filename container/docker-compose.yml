@@ -22,6 +22,8 @@ services:
     volumes:
       # hub temperature
       - ./src/:/app/src/
+      # models
+      - ./src/models:/app/models
       # utils
       - ./src/utils:/app/utils
       # setup files

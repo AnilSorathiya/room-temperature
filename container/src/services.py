@@ -14,12 +14,12 @@ INDEX = os.getenv('ELASTICSEARCH_INDEX_DEVICE_SUMMARY')
 load_dotenv(verbose=True)
 
 # Model has been used for hardware revision 1
-ml_scaler = joblib.load(open('./src/scaler.sav', 'rb'))
+ml_scaler = joblib.load(open('./src/models/scaler.sav', 'rb'))
 
 # Model has been used for hardware revision 1
-model = joblib.load(open('./src/lin_model_hardware_2A.sav', 'rb'))
+model = joblib.load(open('./src/models/lin_model_hardware_2A.sav', 'rb'))
 # Model has been used for hardware revision 2
-model_2E = joblib.load(open('./src/lin_model_hardware_2E.sav', 'rb'))
+model_2E = joblib.load(open('./src/models/lin_model_hardware_2E.sav', 'rb'))
 
 
 def calculate_room_temperature(es_man, *args):

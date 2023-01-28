@@ -10,6 +10,7 @@ WORKDIR /app
 # room temperature
 ADD ./src/ ./src/
 ADD ./src/utils/ ./src/utils/
+ADD ./src/models/ ./src/models/
 ADD requirements.txt .
 ADD run_service.sh ./
 ADD wsgi.ini ./
