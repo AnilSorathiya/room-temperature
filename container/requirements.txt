@@ -11,5 +11,6 @@ python-dotenv==0.18.0
 joblib==1.0.1
 pickleshare==0.7.5
 elasticsearch==7.13.1
+numpyencoder==0.3.0
 itsdangerous==1.1.0
 markupsafe==1.1.1
