@@ -17,9 +17,9 @@ def validate_request(*args):
             errors.append({
                 APIParams.ROOM_TEMPERATURE.value: "Not valid"
             })
-        elif not (10.0 < float(room_temperature) < 50.0):
+        elif not (10.0 < float(room_temperature) < 45.0):
             errors.append({
-                APIParams.ROOM_TEMPERATURE.value: "Not valid"
+                APIParams.ROOM_TEMPERATURE.value: "is out of range"
             })
         else:
             data[APIParams.ROOM_TEMPERATURE.value] = float(room_temperature)
@@ -35,6 +35,10 @@ def validate_request(*args):
             errors.append({
                 APIParams.LIGHT_BRIGHTNESS.value: "Not valid"
             })
+        elif not (0.0 < float(light_brightness) < 100.0):
+            errors.append({
+                APIParams.LIGHT_BRIGHTNESS.value: "is out of range"
+            })
         else:
             data[APIParams.LIGHT_BRIGHTNESS.value] = float(light_brightness)
     else:
@@ -49,25 +53,16 @@ def validate_request(*args):
             errors.append({
                 APIParams.PROCESSOR_TEMPERATURE.value: "Not valid"
             })
+        elif not (31000.0 < float(processor_temperature) < 45000.0):
+            errors.append({
+                APIParams.PROCESSOR_TEMPERATURE.value: "is out of range"
+            })
         else:
             data[APIParams.PROCESSOR_TEMPERATURE.value] = float(processor_temperature)
     else:
         errors.append({
             APIParams.PROCESSOR_TEMPERATURE.value: "is missing"
         })
-    ## TODO remove this code
-    # if (APIParams.FAMILY_DEVICE_ID.value in arguments) and (len(args_d[APIParams.FAMILY_DEVICE_ID.value]) > 0):
-    #     family_device_id = args_d[APIParams.FAMILY_DEVICE_ID.value][0]
-    #     if (family_device_id is None) or (family_device_id == ""):
-    #         errors.append({
-    #             APIParams.FAMILY_DEVICE_ID.value: "Not valid"
-    #         })
-    #     else:
-    #         data[APIParams.FAMILY_DEVICE_ID.value] = str(family_device_id)
-    # else:
-    #     errors.append({
-    #         APIParams.FAMILY_DEVICE_ID.value: "is missing"
-    #     })
 
     if APIParams.HUB_HW_REVISION.value in arguments:
         allowed_revisions = ["1B", "2A", "2E"]
