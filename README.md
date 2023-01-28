@@ -51,7 +51,9 @@ callable    = app
 ```
 
 ---
-##Execution steps
+
+## Execution steps
+
 1. Build and run docker container
 ```commandline
     cd <path-to-container-folder>
