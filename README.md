@@ -1,10 +1,16 @@
 ﻿# Room Temperature Model and Docker Container
 
 ## Introduction
-This is `room-temperature` docker container that compute room temperature using ML model. This container provides
-endpoints to compute room temperature. Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details.
-This is simple example of linear model here. The model has been developed offline and used here to predict the 
-room temperature value.
+Temperature sensors provides good accuracy when you use in control variables. However, when you embedded into a harware
+device, there are other variables affect the reading of the sensor such as processor temperature, external temperature,
+any LED attach with the device.
+
+This is `room-temperature` docker container that compute room temperature using ML model taking as input of above 
+variables. This container provides endpoints so that it can be easy deployed and call from user interface/app or even 
+internal infrastructure services for further complex computation.
+Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details. This is simple example of 
+linear model here. The model has been developed offline and used here to predict the room temperature value through API 
+call.
 
 ## Folder structure:
 ```
@@ -23,12 +29,11 @@ README.md:  readme file
 # Model 
 ## Assumptions
 ### Features used in the training data are in the following range:
-* Temperature from temperature sensor is in range 10 to 45 degree celcius 
+* Temperature from temperature sensor is in range 10 to 45 degree Celsius 
 * Light brightness level of device is in range of 0 to 100 
 * Processor temperature of device is in range of 31000 to 45000
 
 ## Tools
-
 **uWSGI**
 ---
 The `run_service.sh` starts uWSGI service to manage containers rest api application. The configuration parameters
