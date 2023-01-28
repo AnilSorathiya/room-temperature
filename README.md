@@ -2,13 +2,26 @@
 
 
 ## Introduction
-
-This is `room-temperature` a docker container that compute room temperature using ML model. This container provides 
+This is `room-temperature` a docker container that compute room temperature using ML model. This container provides
 endpoints to compute room temperature. Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details.
+This is simple example of linear model here. The model has been developed offline and used here to predict the 
+room temperature value.
 
 ##TODO 
 ## Folder structure:
-* Contrainer: source 
+```
+--container: Docker container source code
+    --model: model used by in production
+    --src: source code APIs and model wrapper to run in docker container
+        --utils: utility modules
+    --test: container tests
+    (docker cofiguration files)
+--data: data folder
+--notebooks: exploratory analysis of room temperature and offline model building
+    --models: store relevant models
+README.md:  readme file
+```
+
 
 ## Docker container requirements files
 
