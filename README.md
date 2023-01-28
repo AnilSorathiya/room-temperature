@@ -6,11 +6,11 @@
 This is `room-temperature` a docker container that compute room temperature using ML model. This container provides 
 endpoints to compute room temperature. Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details.
 
-
-## TODO 
+##TODO 
 ## Folder structure:
 * Contrainer: source 
 
+## Docker container requirements files
 
 # Model 
 ## Assumptions

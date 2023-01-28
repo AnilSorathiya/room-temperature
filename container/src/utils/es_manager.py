@@ -39,7 +39,6 @@ class ESConnection(metaclass=MetaSingleton):
                                     timeout=self.timeout,
                                     ssl=True,
                                     dead_timeout=10, retry_on_timeout=10)
-            # watchdog.logger.info("Elasticsearch connection established")
         return self.es
 
     def request_data(self, index=None, query=None):
@@ -69,7 +68,7 @@ if __name__ == '__main__':
     print("Elastic search  connection object esA", esA)
     print("Elastic search  connection object esB", esB)
 
-    query: str = '{"query": {"match": {"doc.deviceId": "4220c1b7-f356-4b30-b6ff-ee06a3c40ec9"}}, "aggs": {"avgValues":' \
+    query: str = '{"query": {"match": {"doc.deviceId": "123456789"}}, "aggs": {"avgValues":' \
                  '{"filter": {"range": {"doc.startAt": {"gte": 1625582145, "lte": 1625586645}}}, ' \
                  '"aggs": {"avgActivity": {"avg": {"field": "doc.activity"}}, "avgSteps": {"avg": {"field": ' \
                  '"doc.steps"}}}}}}'

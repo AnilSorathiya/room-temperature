@@ -19,7 +19,7 @@ ml_scaler = joblib.load(open('./src/scaler.sav', 'rb'))
 # Model has been used for hardware revision 1
 model = joblib.load(open('./src/lin_model_hardware_2A.sav', 'rb'))
 # Model has been used for hardware revision 2
-model_2E = joblib.load(open('./src/lin_model_hardware_2A.sav', 'rb'))
+model_2E = joblib.load(open('./src/lin_model_hardware_2E.sav', 'rb'))
 
 
 def calculate_room_temperature(es_man, *args):
@@ -60,6 +60,10 @@ def calculate_room_temperature(es_man, *args):
         d_room_temperature = room_temperature
         d_light_brightness = light_brightness
         d_processor_temperature = processor_temperature
+        watchdog.logger.info("Database is returning None")
+
+        watchdog.logger.info([d_room_temperature, d_light_brightness, d_processor_temperature])
+
     try:
         watchdog.logger.info(model)
         watchdog.logger.info([d_room_temperature, d_light_brightness, d_processor_temperature])
