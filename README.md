@@ -1,10 +1,23 @@
 ﻿# Room Temperature Docker Container
 
+
 ## Introduction
 
-This is `room-temperature` a docker container that compute room temperature using ml model. This container provides endpoints to compute room temperature.
+This is `room-temperature` a docker container that compute room temperature using ML model. This container provides 
+endpoints to compute room temperature. Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details.
 
-Please refer the [docker-compose.yml](docker-compose.yml) file for the configuration details.
+
+## TODO 
+## Folder structure:
+* Contrainer: source 
+
+
+# Model 
+## Assumptions
+### Features used in the training data are in the following range:
+* Temperature from temperature sensor is in range 10 to 45 degree celcius 
+* Light brightness level of device is in range of 0 to 100 
+* Processor temperature of device is in range of 31000 to 45000
 
 ## Tools
 
@@ -73,3 +86,4 @@ Returns json data about room temperature, original hub temperature and device Id
      ```bash
         curl -XGET http://localhost:8000/calculate-room-temperature?roomTemperature=28.875&lightBrightness=10&processorTemperature=34100
      ```
+  
