@@ -1,7 +1,5 @@
 from elasticsearch import Elasticsearch
 
-from container.src.utils import watchdog
-
 
 class MetaSingleton(type):
     _instances = {}
@@ -41,7 +39,7 @@ class ESConnection(metaclass=MetaSingleton):
                                     timeout=self.timeout,
                                     ssl=True,
                                     dead_timeout=10, retry_on_timeout=10)
-            watchdog.logger.info("Elasticsearch connection established")
+            # watchdog.logger.info("Elasticsearch connection established")
         return self.es
 
     def request_data(self, index=None, query=None):

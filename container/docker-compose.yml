@@ -1,0 +1,36 @@
+version: '3'
+services:
+  ml-metrics:
+    build: .
+    container_name: "ml-room-temperature"
+    environment:
+      - LOG_LEVEL
+      - ELASTICSEARCH_HOST
+      - ELASTICSEARCH_PORT
+      - ELASTICSEARCH_USERNAME
+      - ELASTICSEARCH_PASSWORD
+      - ELASTICSEARCH_INDEX_DEVICE_SUMMARY
+      - ML_COMMUNICATION_PORT
+    ports:
+      - $ML_COMMUNICATION_PORT:8000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "10"
+    # This configuration needs to be commented out for production. Uncomment only for local use (development)
+    volumes:
+      # hub temperature
+      - ./src/:/app/src/
+      # utils
+      - ./src/utils:/app/utils
+      # setup files
+      - ./requirements.txt:/app/requirements.txt
+      - ./run_service.sh:/app/run_service.sh
+      - ./wsgi.ini:/app/wsgi.ini
+      - ./routes.py:/app/routes.py
+    restart: always
+    networks:
+      - network-bridge
+networks:
+  network-bridge:
