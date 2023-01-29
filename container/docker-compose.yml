@@ -12,7 +12,7 @@ services:
       - ELASTICSEARCH_INDEX_DEVICE_SUMMARY
       - ML_COMMUNICATION_PORT
     ports:
-      - $ML_COMMUNICATION_PORT:8000
+      - $ML_COMMUNICATION_PORT:8080
     logging:
       driver: "json-file"
       options:

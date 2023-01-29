@@ -18,7 +18,7 @@ load_dotenv(verbose=True)
 ml_scaler = joblib.load(open('./src/models/scaler.sav', 'rb'))
 
 # Model has been used for hardware revision 1
-model = joblib.load(open('./src/models/lin_model_hardware_2A.sav', 'rb'))
+model_1B = joblib.load(open('./src/models/lin_model_hardware_1B.sav', 'rb'))
 # Model has been used for hardware revision 2
 model_2E = joblib.load(open('./src/models/lin_model_hardware_2E.sav', 'rb'))
 
@@ -65,14 +65,14 @@ def calculate_room_temperature(es_man, *args):
         watchdog.logger.info([d_room_temperature, d_light_brightness, d_processor_temperature])
 
     try:
-        watchdog.logger.info(model)
+        watchdog.logger.info(model_1B)
         watchdog.logger.info([d_room_temperature, d_light_brightness, d_processor_temperature])
         watchdog.logger.info("Predict room temperature using Linear regression model")
 
         if hub_hw_revision == '1B':
             x_test_scaled = ml_scaler.transform([[d_room_temperature, d_light_brightness, d_processor_temperature]])
             watchdog.logger.info(x_test_scaled)
-            predicted_room_temperature = model.predict(x_test_scaled) - 1.0
+            predicted_room_temperature = model_1B.predict(x_test_scaled) - 1.0
         elif hub_hw_revision in hub2_hw_revisions:
             predicted_room_temperature = model_2E.predict(
                 [[d_room_temperature, d_light_brightness, d_processor_temperature]])

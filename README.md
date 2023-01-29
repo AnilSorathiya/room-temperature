@@ -40,7 +40,7 @@ for the uWSGI can be found in the `wsgi.ini` file.
 
 ```ini
 [uwsgi]
-http-socket = :8000
+http-socket = :8080
 plugin      = python
 wsgi-file   = ./routes.py
 process     = 5
@@ -57,13 +57,13 @@ callable    = app
     docker-compose up
 ```
 2.  Browser url 
-    http://localhost:8001/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E
+    http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E
     
     or
     
     Use the following curl command on terminal:
 ```commandline
-    curl --location --request GET 'http://localhost:8001/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E'  
+    curl --location --request GET 'http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E'  
 ```
 
 
@@ -112,6 +112,6 @@ Returns json data about room temperature, original hub temperature and device id
 * **Sample Call:**
 
      ```bash
-        curl -XGET http://localhost:8001/calculate-room-temperature?roomTemperature=28.875&lightBrightness=10&processorTemperature=34100
+        curl -XGET http://localhost:8080/calculate-room-temperature?roomTemperature=28.875&lightBrightness=10&processorTemperature=34100
      ```
   
