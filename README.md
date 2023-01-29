@@ -19,7 +19,7 @@ I am assuming this will run on `macOS` or `linux`
 ```shell
 cd container
 pip install -r requirements.txt
-
+cp .env.template .env
 python routes.py
 ```
 2. Open the link on your browser 
