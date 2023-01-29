@@ -26,6 +26,7 @@ es_man = es_manager.ESConnection(**es_config)
 def get_room_temperature():
     return calculate_room_temperature(es_man, request.args)
 
+
 @app.errorhandler(404)
 def not_found(_error=None):
     message = {
@@ -41,4 +42,3 @@ def not_found(_error=None):
 if __name__ == "__main__":
     watchdog.logger.info("Starting app")
     app.run(host="0.0.0.0", port=8000, debug=True)
-

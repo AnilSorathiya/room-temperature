@@ -1,6 +1,6 @@
 import os
 import joblib
-from flask import jsonify, Response
+from flask import jsonify
 from dotenv import load_dotenv
 from .utils import watchdog as watchdog
 from .middleware import validate_request
@@ -8,7 +8,8 @@ from .enums import APIParams, ModelColumns, ESColumns
 import json
 from numpyencoder import NumpyEncoder
 
-MINUTES = -30 # used to retrieve last X minutes data from database
+# used to retrieve last X minutes data from database
+MINUTES = -30
 hub2_hw_revisions = ["2A", "2E"]
 INDEX = os.getenv('ELASTICSEARCH_INDEX_DEVICE_SUMMARY')
 load_dotenv(verbose=True)
@@ -23,7 +24,6 @@ model_2E = joblib.load(open('./src/models/lin_model_hardware_2E.sav', 'rb'))
 
 
 def calculate_room_temperature(es_man, *args):
-
     data, errors = validate_request(args)
     watchdog.logger.info(data)
     if len(errors) > 0:
