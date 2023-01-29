@@ -12,6 +12,34 @@ Please refer the [docker-compose.yml](container/docker-compose.yml) file for the
 linear model here. The model has been developed offline and used here to predict the room temperature value through API 
 call.
 
+## Installation and Execution steps
+I am assuming this will run on `macOS` or `linux` 
+### Command execution
+1. Run installation dependencies and service 
+```shell
+cd container
+pip install -r requirements.txt
+python routes.py
+```
+2. Open the link on your browser 
+    http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E
+
+### Docker build and execution
+1. Build and run docker container
+```shell
+cd container
+docker-compose up
+```
+2.  Open the link on your browser
+    http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E
+    
+    or
+    
+    Use the following curl command on terminal:
+```commandline
+    curl --location --request GET 'http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E'  
+```
+
 ## Folder structure:
 ```shell
 ├── README.md
@@ -48,24 +76,6 @@ callable    = app
 ```
 
 ---
-
-## Execution steps
-
-1. Build and run docker container
-```commandline
-    cd path-to-container-folder
-    docker-compose up
-```
-2.  Browser url 
-    http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E
-    
-    or
-    
-    Use the following curl command on terminal:
-```commandline
-    curl --location --request GET 'http://localhost:8080/calculate-room-temperature?roomTemperature=30.25&lightBrightness=40&processorTemperature=33600&hubHWRevision=2E'  
-```
-
 
 ## Endpoints
 ### Room temperature
