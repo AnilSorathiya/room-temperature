@@ -9,4 +9,3 @@ __pycache__
 .env
 .DS_Store
 .history
-.env.template
