@@ -13,17 +13,14 @@ linear model here. The model has been developed offline and used here to predict
 call.
 
 ## Folder structure:
-```
---container: Docker container source code
-    --model: model used by in production
-    --src: source code APIs and model wrapper to run in docker container
-        --utils: utility modules
-    --test: container tests
-    (docker cofiguration files)
---data: data folder
---notebooks: exploratory analysis of room temperature and offline model building
-    --models: store relevant models
-README.md:  readme file
+```shell
+├── README.md
+├── container - Docker container source code
+│		├── src - Source code APIs and model wrapper to run in docker container
+│			├── models - models used in the container
+│			└── utils - utility modules
+└── notebooks
+    └── models - store relevant models that are during exploratory analysis
 ```
 
 # Model 
